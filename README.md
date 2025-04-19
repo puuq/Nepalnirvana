@@ -16,14 +16,14 @@ To use this template to start your own project:
 
 ##create a postgres db and add the credentials to settings.py
 
-`DATABASES = { <br />
-    'default': { <br />
-        'ENGINE': 'django.db.backends.postgresql', <br />
-        'NAME': 'db_name', <br />
-        'USER': 'name', <br />
-        'PASSWORD': '', <br />
-        'HOST': 'localhost', <br />
-        'PORT': '', <br />
+`DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'db_name',
+        'USER': 'name',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }`
 
