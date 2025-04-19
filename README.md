@@ -1,20 +1,20 @@
-#Getting Started
+# Getting Started
 To use this template to start your own project:
 
-##clone the project
+## clone the project
 
 `https://github.com/puuq/Nepalnirvana.git`
 
-##create and start a a virtual environment
+## create and start a a virtual environment
 
 `virtualenv env --no-site-packages`
 `source env/bin/activate`
 
-##Install the project dependencies:
+## Install the project dependencies:
 
 `pip install -r requirements.txt`
 
-##create a postgres db and add the credentials to settings.py
+## create a postgres db and add the credentials to settings.py
 
 `DATABASES = {
     'default': {
@@ -27,26 +27,26 @@ To use this template to start your own project:
     }
 }`
 
-##then run
+## then run
 
 `python manage.py migrate`
 
-##create admin account
+## create admin account
 
 `python manage.py createsuperuser`
 
-##then
+## then
 
 `python manage.py makemigrations`
 
-##to makemigrations for the app
+## to makemigrations for the app
 
-##then again run
+## then again run
 
 `python manage.py migrate`
 
-##to start the development server
+## to start the development server
 
 `python manage.py runserver`
 
-##and open localhost:8000 on your browser to view the app.
+## and open localhost:8000 on your browser to view the app.
