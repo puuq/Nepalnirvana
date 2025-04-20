@@ -16,8 +16,7 @@ To use this template to start your own project:
 
 ## create a postgres db and add the credentials to settings.py
 
-```python
-DATABASES = {
+`DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'myshopdb',
@@ -26,7 +25,7 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '5432',
     }
-}
+}`
 
 ## then run
 
