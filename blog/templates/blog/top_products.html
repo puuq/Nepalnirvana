@@ -1,0 +1,36 @@
+{% extends 'blog/parents/base.html' %}
+{% load blog_tags %}
+
+{% block title %}Top Products{% endblock %}
+
+{% block content %}
+<section class="py-4 text-center bg-light">
+    <div class="container">
+        <h2 class="display-5 fw-bold text-dark">Top Picks</h2>
+        <p class="lead text-muted mt-2">The most loved products based on popularity!</p>
+
+        {% show_top_picks as top_picks %}
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            {% for product in top_picks %}
+                <div class="col mb-5">
+                    <div class="card h-100 border-0 shadow-sm hover-shadow transition-transform">
+                        <a href="{{ product.get_absolute_url }}">
+                            <img class="card-img-top" src="{{ product.image.url }}" alt="{{ product.title }}" style="object-fit: cover; height: 250px;">
+                        </a>
+                        <div class="card-body p-4 text-center">
+                            <h5 class="fw-bolder">{{ product.title }}</h5>
+                            <span class="text-dark">NRs. {{ product.price }}</span>
+                        </div>
+                        <div class="card-footer p-3 d-flex justify-content-around bg-light border-top">
+                            <a class="btn btn-outline-dark btn-sm w-50 me-2" href="{{ product.get_absolute_url }}">View Details</a>
+                            <a class="btn btn-outline-info btn-sm w-50 update-item" data-product="{{ product.id }}" data-action="add">
+                                Add Cart
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

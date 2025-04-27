@@ -1,0 +1,35 @@
+<!-- Header -->
+<header class="bg-dark py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            <!-- Small Subtitle -->
+            <p class="lead text-warning mb-2" style="letter-spacing: 1px;">
+                Looking for some authentic Nepali goods?
+            </p>
+
+            <!-- Main Title -->
+            <h1 class="display-4 fw-bold mb-4">Shop in Style</h1>
+
+            <!-- Search Bar Container -->
+            <div class="d-flex justify-content-center">
+                <form method="get" action="{% url 'blog:search' %}" class="d-flex w-100" style="max-width: 400px;">
+                    <input 
+                        id="search-input" 
+                        type="search" 
+                        class="form-control rounded-start shadow-sm border-0" 
+                        placeholder="Search..." 
+                        name="query" 
+                        value="{{ request.GET.query }}"
+                        aria-label="Search"
+                    />
+                    <button class="btn btn-primary rounded-end shadow-sm" type="submit">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Bootstrap Icons CDN (for the search icon) -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">

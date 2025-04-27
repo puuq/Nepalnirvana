@@ -1,0 +1,157 @@
+{% extends 'blog/parents/base.html' %}
+{% load blog_tags %}
+{% load static %}
+
+{% block title %}Authentic Nepali Products | Nepal Nirvana{% endblock %}
+
+{% block content %}
+    {% include 'blog/partials/header.html' %}
+
+    <!-- Product Landing Title -->
+    <section class="text-center py-4 bg-light">
+        <div class="container">
+            <h2 class="display-5 fw-bold text-dark">Nepali Treasures</h2>
+            <p class="lead text-muted mt-2">Carefully curated traditional and handmade products from the heart of Nepal.</p>
+        </div>
+    </section>
+
+    <!-- Product Section -->
+    <section class="pb-5 bg-white">
+        <div class="container px-4 px-lg-5 mt-5">
+            <h3 class="mb-4 text-center text-primary fw-semibold">Browse Our Products</h3>
+    
+            <!-- Product Grid -->
+            <div class="row gx-4 gx-lg-5 row-cols-1 row-cols-md-3 justify-content-center">
+                {% for product in products %}
+                    <div class="col mb-5">
+                        <div class="card h-100 border-0 shadow-sm hover-shadow transition-transform">
+                            {% if product.offPrice %}
+                                <div class="badge bg-danger text-white position-absolute"
+                                     style="top: 0.5rem; right: 0.5rem">Sale</div>
+                            {% endif %}
+    
+                            <a href="{{ product.get_absolute_url }}">
+                                <img class="card-img-top" src="{{ product.image.url }}" alt="{{ product.title }}"
+                                     style="object-fit: cover; height: 250px;">
+                            </a>
+    
+                            <div class="card-body p-4 text-center">
+                                <h5 class="fw-bolder">{{ product.title }}</h5>
+                                {% if product.offPrice %}
+                                    <span class="text-muted text-decoration-line-through">${{ product.price }}</span>
+                                    <span class="text-danger ms-2 fw-semibold">${{ product.offPrice }}</span>
+                                {% else %}
+                                    <span class="text-dark">${{ product.price }}</span>
+                                {% endif %}
+                            </div>
+    
+                            <div class="card-footer p-3 d-flex justify-content-around bg-light border-top">
+                                <a class="btn btn-outline-dark btn-sm w-50 me-2"
+                                   href="{{ product.get_absolute_url }}">View details</a>
+                                <a class="btn btn-outline-primary btn-sm w-50 update-item"
+                                   data-product="{{ product.id }}" data-action="add"
+                                   {% if not request.user.authentication %}href="{% url 'blog:login' %}"{% endif %}>
+                                    Add Cart
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {% empty %}
+                        <div class="text-center py-5">
+                            <h4 class="text-muted">No products matched your search.</h4>
+                            <p>Try using different keywords or check back later!</p>
+                        </div>
+                {% endfor %}
+            </div>
+    
+            <!-- Pagination Controls -->
+            {% include 'blog/partials/pagination.html' with page=products %}
+        </div>
+    </section>
+    
+
+<!-- Top Picks Section -->
+<section class="bg-light py-4 text-center">
+    <div class="container">
+        <h2 class="display-5 fw-bold text-dark">Top Picks</h2>
+        <p class="lead text-muted mt-2">The most loved products by everyone!</p>
+        <br>
+
+        {% show_top_picks as top_picks %}
+        <div class="row gx-4 gx-lg-5 row-cols-1 row-cols-md-3 justify-content-center">
+            {% for product in top_picks %}
+                <div class="col mb-5">
+                    <div class="card h-100 border-0 shadow-sm hover-shadow transition-transform">
+                        {% if product.offPrice %}
+                            <div class="badge bg-danger text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                        {% endif %}
+                    
+                        <a href="{{ product.get_absolute_url }}">
+                            <img class="card-img-top" src="{{ product.image.url }}" alt="{{ product.title }}" style="object-fit: cover; height: 250px;">
+                        </a>
+                    
+                        <div class="card-body p-4 text-center">
+                            <h5 class="fw-bolder">{{ product.title }}</h5>
+                            {% if product.offPrice %}
+                                <span class="text-muted text-decoration-line-through">${{ product.price }}</span>
+                                <span class="text-danger ms-2 fw-semibold">${{ product.offPrice }}</span>
+                            {% else %}
+                                <span class="text-dark">${{ product.price }}</span>
+                            {% endif %}
+                        </div>
+                    
+                        <div class="card-footer p-3 d-flex justify-content-around bg-light border-top">
+                            <a class="btn btn-outline-dark btn-sm w-50 me-2" href="{{ product.get_absolute_url }}">View Details</a>
+                            <a class="btn btn-outline-primary btn-sm w-50 update-item" data-product="{{ product.id }}" data-action="add">Add Cart</a>
+                        </div>
+                    </div>
+                    
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Picks For You Section -->
+<section class="bg-white py-4 text-center">
+    <div class="container">
+        <h2 class="display-5 fw-bold text-dark">Picks For You</h2>
+        <p class="lead text-muted mt-2">Recommended products based on your activities!</p>
+        <br>
+
+        {% show_picks_for_you as personalized_picks %}
+        <div class="row gx-4 gx-lg-5 row-cols-1 row-cols-md-3 justify-content-center">
+            {% for product in personalized_picks %}
+                <div class="col mb-5">
+                    <div class="card h-100 border-0 shadow-sm hover-shadow transition-transform">
+                        {% if product.offPrice %}
+                            <div class="badge bg-danger text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                        {% endif %}
+                    
+                        <a href="{{ product.get_absolute_url }}">
+                            <img class="card-img-top" src="{{ product.image.url }}" alt="{{ product.title }}" style="object-fit: cover; height: 250px;">
+                        </a>
+                    
+                        <div class="card-body p-4 text-center">
+                            <h5 class="fw-bolder">{{ product.title }}</h5>
+                            {% if product.offPrice %}
+                                <span class="text-muted text-decoration-line-through">${{ product.price }}</span>
+                                <span class="text-danger ms-2 fw-semibold">${{ product.offPrice }}</span>
+                            {% else %}
+                                <span class="text-dark">${{ product.price }}</span>
+                            {% endif %}
+                        </div>
+                    
+                        <div class="card-footer p-3 d-flex justify-content-around bg-light border-top">
+                            <a class="btn btn-outline-dark btn-sm w-50 me-2" href="{{ product.get_absolute_url }}">View Details</a>
+                            <a class="btn btn-outline-primary btn-sm w-50 update-item" data-product="{{ product.id }}" data-action="add">Add Cart</a>
+                        </div>
+                    </div>
+                    
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}

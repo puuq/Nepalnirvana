@@ -1,0 +1,87 @@
+{% extends 'blog/parents/base.html' %}
+
+{% block title %}About Us{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row align-items-center mb-5">
+        <div class="col-lg-6">
+            <h1 class="display-4 fw-bold text-primary mb-4">About <span class="text-dark">Our Shop</span></h1>
+            <p class="lead text-muted">
+                Welcome to <strong>Your Shop</strong> – your go-to destination for quality products, exceptional service, and a seamless shopping experience.
+                We pride ourselves on offering a wide range of carefully curated items to suit your needs.
+            </p>
+        </div>
+        <div class="col-lg-6 text-center">
+            {% comment %} <img src="{% static 'images/about-us.jpg' %}" class="img-fluid rounded-3 shadow-lg" alt="About Us Image" style="max-height: 300px; object-fit: cover;"> {% endcomment %}
+        </div>
+    </div>
+
+    <hr class="mb-5">
+
+    <div class="row mb-5">
+        <div class="col-md-6">
+            <h2 class="mb-3">Our Mission</h2>
+            <p>We aim to deliver premium products that meet high standards of quality. Our mission revolves around customer satisfaction, fast delivery, and honest service.</p>
+            <p>Every item in our collection is handpicked with an eye for detail and a focus on excellence.</p>
+        </div>
+        <div class="col-md-6">
+            <h2 class="mb-3">Our Values</h2>
+            <ul class="list-unstyled">
+                <li class="mb-2"><i class="bi bi-people-fill text-primary me-2"></i><strong>Customer Focused:</strong> We prioritize your satisfaction and strive for excellence in every interaction.</li>
+                <li class="mb-2"><i class="bi bi-shield-lock-fill text-primary me-2"></i><strong>Integrity:</strong> Honesty and transparency guide everything we do.</li>
+                <li class="mb-2"><i class="bi bi-lightbulb-fill text-primary me-2"></i><strong>Innovation:</strong> We embrace the latest trends and tech to elevate your shopping experience.</li>
+            </ul>
+        </div>
+    </div>
+
+    <hr class="mb-5">
+
+    <h2 class="mb-4 text-center">Why Choose Us?</h2>
+    <p class="text-center mb-4">We offer more than just products – we offer a lifestyle. Here's why we stand out:</p>
+
+    <div class="row text-center">
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm border-0 hover-shadow transition">
+                <div class="card-body">
+                    <i class="bi bi-award-fill fs-1 text-primary mb-3"></i>
+                    <h5 class="card-title">Top-Quality Products</h5>
+                    <p class="card-text text-muted">Handpicked for their excellence in quality, design, and functionality.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm border-0 hover-shadow transition">
+                <div class="card-body">
+                    <i class="bi bi-shield-check fs-1 text-primary mb-3"></i>
+                    <h5 class="card-title">Secure Payment</h5>
+                    <p class="card-text text-muted">Your transactions are protected with top-level security protocols.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm border-0 hover-shadow transition">
+                <div class="card-body">
+                    <i class="bi bi-truck fs-1 text-primary mb-3"></i>
+                    <h5 class="card-title">Fast Delivery</h5>
+                    <p class="card-text text-muted">Reliable and speedy delivery powered by our trusted partners.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="my-5">
+
+    <h2 class="text-center mb-4">Contact Us</h2>
+    <p class="text-center">Have any questions or need support? We’re here to help!</p>
+    <div class="text-center">
+        <p>Email: <a href="mailto:support@yourshop.com" class="text-decoration-none">support@yourshop.com</a></p>
+        <p>Follow us on:</p>
+        <div>
+            <a href="#" class="me-3 text-decoration-none text-primary"><i class="bi bi-facebook"></i> Facebook</a>
+            <a href="#" class="me-3 text-decoration-none text-primary"><i class="bi bi-instagram"></i> Instagram</a>
+            <a href="#" class="text-decoration-none text-primary"><i class="bi bi-twitter-x"></i> Twitter</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
